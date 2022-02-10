@@ -12,7 +12,6 @@ class ApplicationController < ActionController::Base
     end
 
     def hello
-        debugger
         render html: "Hello world!"
     end
 end
