@@ -11,7 +11,4 @@ class ApplicationController < ActionController::Base
         @response_hash = JSON.parse(response)
     end
 
-    def hello
-        render html: "Hello world!"
-    end
 end
