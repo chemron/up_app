@@ -4,6 +4,10 @@
 /* mixins, variables, etc. */
 
 $gray-medium-light: #eaeaea;
+// taken from the up website:
+$orange: rgb(255, 122, 100);
+$yellow: rgb(255, 239, 107);
+$navy: rgb(36, 36, 48);
 
 /* universal */
 
@@ -55,17 +59,31 @@ p {
 
 /* header */
 
+header {
+  background-color: $navy;
+  .container{
+    background-color: $navy;
+    // navigation links
+    nav>.navbar-right>li>a{
+      color: $yellow;
+      &:hover {
+        color: $orange;
+      }
+    }
+  }
+}
+
 #logo {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: white;
-  text-transform: uppercase;
+  color: $orange;
+
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
   &:hover {
-    color: white;
+    color: $yellow;
     text-decoration: none;
   }
 }
