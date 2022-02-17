@@ -22,9 +22,20 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
+  test "username should consist only of letters" do
+    @user.username = "#&*("
+    assert_not @user.valid?
+  end
+
   test "username should not be too long" do
     @user.username = "a" * 51
     assert_not @user.valid?
+  end
+
+  test "usernames should be unique" do
+    dup_user = @user.dup
+    @user.save
+    assert_not dup_user.valid?
   end
 
 
