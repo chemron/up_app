@@ -6,5 +6,7 @@ class User < ApplicationRecord
         format: { with: VALID_USERNAME_REGEX},
         uniqueness: true)
     
+    validates(:password, presence: true, length: {minimum: 7})
+    
     has_secure_password
 end
