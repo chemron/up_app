@@ -3,7 +3,7 @@ require "test_helper"
 class StaticPagesControllerTest < ActionDispatch::IntegrationTest
 
   def setup
-    @base_title = "Up Account Viewer"
+    @base_title = "(Unofficial) Up Account Viewer"
   end
 
   
