@@ -1,12 +1,14 @@
 require "test_helper"
 
 class UserTest < ActiveSupport::TestCase
+  
+  def setup
+    @user = User.new(username: "example_user")
+  end
+
   # test "the truth" do
   #   assert true
   # end
-  def setup
-    @user = User.new(username: "ExampleUser")
-  end
 
   test "should be valid" do
     assert @user.valid?, @user.errors.full_messages.to_s
@@ -22,9 +24,11 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
-  test "username should consist only of letters" do
-    @user.username = "#&*("
+  test "username should consist only of letters, numbers, hyphens, underscores, and periods" do
+    @user.username = "!@#$%^&*()"
     assert_not @user.valid?
+    @user.username = "cam.smith_1"
+    assert @user.valid?, @user.errors.full_messages.to_s
   end
 
   test "username should not be too long" do
