@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
-  get 'users/new'
-  root 'static_pages#home'
 
+  root 'static_pages#home'
   # static pages
   get '/home', to: 'static_pages#home'
   get '/about', to: 'static_pages#about'
-
+  # users
   get '/signup', to: 'users#new'
-  # For details on the DSL available within this file, see
-  # https://guides.rubyonrails.org/routing.html
-
   resource :user
+  # sessions
+  get '/login',   to: 'sessions#new'
+  post '/login',    to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
 end
