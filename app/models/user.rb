@@ -11,7 +11,7 @@ class User < ApplicationRecord
     validate :access_token_must_be_valid
 
     def access_token_must_be_valid
-        if !is_access_token_valid?(self.access_token)
+        if !is_access_token_valid?(access_token)
             errors.add(:access_token, "must be valid")
         end
     end
