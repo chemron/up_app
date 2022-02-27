@@ -143,6 +143,21 @@ input {
     color: $orange;
     background-color: $navy;
     border-color: $navy;
+    &:active {
+      color: $orange;
+      background-color: $navy;
+      border-color: $navy;
+    }
+  }
+  &:focus {
+    color: $orange;
+    background-color: $navy;
+    border-color: $navy;
+  }
+  &:active {
+    color: $orange;
+    background-color: $navy;
+    border-color: $navy;
   }
 }
 
