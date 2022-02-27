@@ -73,6 +73,7 @@ header {
     // navigation links
     nav>.navbar-right>li>a{
       color: $orange;
+      line-height: 0px;
       &:hover {
         color: $yellow;
       }
@@ -83,7 +84,7 @@ header {
 #logo {
   float: left;
   margin-right: 10px;
-  font-size: 1.7em;
+  font-size: 1.5em;
   color: $orange;
 
   letter-spacing: -1px;
