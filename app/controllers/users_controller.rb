@@ -3,6 +3,10 @@ class UsersController < ApplicationController
     @user=User.new
   end
 
+  def show
+    redirect_to accounts_path
+  end
+
   def create
     @user = User.new(user_params) # Not the final implementation!
     if @user.save
