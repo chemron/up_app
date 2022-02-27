@@ -1,7 +1,7 @@
 module UpApiHelper
-    def api_request(query, user)
+    def api_request(query, access_token)
         base_url =  "https://api.up.com.au/api/v1/"
-        headers = {Authorization: "Bearer #{user.access_token}"}
+        headers = {Authorization: "Bearer #{access_token}"}
     
         response = HTTParty.get(base_url + query, headers: headers)
         # returns "{}" if response.body does not exist
@@ -10,8 +10,20 @@ module UpApiHelper
     end
 
     def get_accounts(user)
-        accounts = api_request("accounts", user)["data"]
+        accounts = api_request("accounts", user.access_token)["data"]
         return accounts
     end
+
+    def is_access_token_valid?(access_token)
+        response = api_request("util/ping", access_token)
+        if response["errors"]
+            return false
+        elsif response["meta"]
+            return response["meta"]["statusEmoji"] == "⚡️"
+        else
+            return false
+        end
+    end
+        
 
 end

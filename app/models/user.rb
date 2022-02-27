@@ -7,6 +7,14 @@ class User < ApplicationRecord
         uniqueness: true)
     
     validates(:password, presence: true, length: {minimum: 6})
+
+    validate :access_token_must_be_valid
+
+    def access_token_must_be_valid
+        if !is_access_token_valid?(self.access_token)
+            errors.add(:access_token, "must be valid")
+        end
+    end
     
     has_secure_password
 end
