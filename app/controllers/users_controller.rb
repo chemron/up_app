@@ -3,22 +3,22 @@ class UsersController < ApplicationController
     @user=User.new
   end
 
-  def show
-    # get currently logged in user
-    # @user = User.find(params[:id])
-  end
-
   def create
     @user = User.new(user_params) # Not the final implementation!
     if @user.save
       flash[:success] = "Welcome to the (Unofficial) Up Account Viewer!"
-      redirect_to home_path
+      redirect_to accounts_path
     else
       render 'new'
     end
   end
 
   def accounts
+    if !logged_in?
+      redirect_to home_path
+    else
+      @accounts = get_accounts(current_user)
+    end
   end
 
   private
