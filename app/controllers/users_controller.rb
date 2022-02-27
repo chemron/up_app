@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params) # Not the final implementation!
     if @user.save
       flash[:success] = "Welcome to the (Unofficial) Up Account Viewer!"
+      log_in(@user)
       redirect_to accounts_path
     else
       render 'new'

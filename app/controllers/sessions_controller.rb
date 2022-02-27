@@ -15,6 +15,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    log_out(@user)
+    redirect_to home_path
   end
 
 end
