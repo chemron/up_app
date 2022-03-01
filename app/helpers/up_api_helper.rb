@@ -24,6 +24,13 @@ module UpApiHelper
             return false
         end
     end
-        
 
+    def get_total(accounts)
+        sum = 0 
+        accounts.each do |account|
+            sum += account["attributes"]["balance"]["value"].to_i
+        end
+        return sum
+    end
+        
 end

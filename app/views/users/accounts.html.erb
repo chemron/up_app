@@ -3,12 +3,15 @@
 
 <div class="row">
     <div class="col-md-6 col-md-offset-3 account">
+        <h1 class="total">
+            Total:
+            <b class="balance">$<%= get_total(@accounts) %></b>
+        </h1>
         <% for account in @accounts %>
             <% account = account["attributes"] %>
             <h1 class="heading"><%= account["displayName"]%></p>
             <h2 class="subtitle">Balance:
             <b class="balance">$<%=account["balance"]["value"]%></b></p>
-
         <% end %>
     </div>
 </div>
