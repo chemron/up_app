@@ -28,9 +28,9 @@ module UpApiHelper
     def get_total(accounts)
         sum = 0 
         accounts.each do |account|
-            sum += account["attributes"]["balance"]["value"].to_i
+            sum += account["attributes"]["balance"]["value"].to_f
         end
-        return sum
+        return sum.round(2)
     end
         
 end
