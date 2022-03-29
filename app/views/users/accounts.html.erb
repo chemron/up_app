@@ -11,7 +11,10 @@
             <% account = account["attributes"] %>
             <h1 class="heading"><%= account["displayName"]%></p>
             <h2 class="subtitle">Balance:
-            <b class="balance">$<%=account["balance"]["value"]%></b></p>
+            <b class="balance">$<%=
+            number_with_precision(account["balance"]["value"], delimiter: ',',
+            precision: 2) 
+            %></b></p>
         <% end %>
     </div>
 </div>
