@@ -39,6 +39,10 @@ textarea {
 .note {
   padding-top: 60px;
 }
+
+.right-align {
+  text-align: right;
+}
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
@@ -60,6 +64,11 @@ h2 {
   text-align: center;
   font-weight: normal;
   color: $gray-light;
+}
+
+h2.subheader{
+  color: $orange;
+  font-size: 1.7em;
 }
 
 p {
